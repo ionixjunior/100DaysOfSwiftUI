@@ -1,2 +1,4 @@
 *.swiftpm/.swiftpm
 *.playground/playground.xcworkspace/
+**/xcuserdata
+**/project.xcworkspace
