@@ -23,6 +23,10 @@ class Converter {
             return convertBetweenSecondsAndDays(value: value, from: from, to: to)
         }
 
+        if (from == .minutes || from == .hours) && (to == .minutes || to == .hours) {
+            return convertBetweenMinutesAndHours(value: value, from: from, to: to)
+        }
+
         return 0
     }
 
@@ -48,6 +52,14 @@ class Converter {
         }
 
         return value * 60 * 60 * 24
+    }
+
+    private static func convertBetweenMinutesAndHours(value: Int, from: Unit, to: Unit) -> Int {
+        if from == .minutes {
+            return value / 60
+        }
+
+        return value * 60
     }
 }
 
