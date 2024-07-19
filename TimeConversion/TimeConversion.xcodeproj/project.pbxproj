@@ -16,6 +16,7 @@
 		7A3A3A6B2C4B11510030F572 /* TimeConversionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3A3A6A2C4B11510030F572 /* TimeConversionUITestsLaunchTests.swift */; };
 		7A3A3A7A2C4B11EC0030F572 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3A3A792C4B11EC0030F572 /* Converter.swift */; };
 		7A3A3A7C2C4B12110030F572 /* ConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3A3A7B2C4B12110030F572 /* ConverterTests.swift */; };
+		7A3A3A7E2C4B134A0030F572 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3A3A7D2C4B134A0030F572 /* Unit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		7A3A3A6A2C4B11510030F572 /* TimeConversionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConversionUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7A3A3A792C4B11EC0030F572 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		7A3A3A7B2C4B12110030F572 /* ConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterTests.swift; sourceTree = "<group>"; };
+		7A3A3A7D2C4B134A0030F572 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				7A3A3A792C4B11EC0030F572 /* Converter.swift */,
+				7A3A3A7D2C4B134A0030F572 /* Unit.swift */,
 			);
 			path = Converter;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A3A3A4F2C4B11500030F572 /* ContentView.swift in Sources */,
+				7A3A3A7E2C4B134A0030F572 /* Unit.swift in Sources */,
 				7A3A3A7A2C4B11EC0030F572 /* Converter.swift in Sources */,
 				7A3A3A4D2C4B11500030F572 /* TimeConversionApp.swift in Sources */,
 			);
