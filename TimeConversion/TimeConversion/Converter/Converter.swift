@@ -9,5 +9,9 @@ import Foundation
 
 class Converter {
     private init() {}
+
+    static func convert(value: Int, from: Unit, to: Unit) -> Int {
+        return 0
+    }
 }
 
