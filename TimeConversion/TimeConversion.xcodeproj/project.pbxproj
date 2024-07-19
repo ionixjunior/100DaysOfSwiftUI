@@ -14,6 +14,8 @@
 		7A3A3A5F2C4B11510030F572 /* TimeConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3A3A5E2C4B11510030F572 /* TimeConversionTests.swift */; };
 		7A3A3A692C4B11510030F572 /* TimeConversionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3A3A682C4B11510030F572 /* TimeConversionUITests.swift */; };
 		7A3A3A6B2C4B11510030F572 /* TimeConversionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3A3A6A2C4B11510030F572 /* TimeConversionUITestsLaunchTests.swift */; };
+		7A3A3A7A2C4B11EC0030F572 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3A3A792C4B11EC0030F572 /* Converter.swift */; };
+		7A3A3A7C2C4B12110030F572 /* ConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3A3A7B2C4B12110030F572 /* ConverterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		7A3A3A642C4B11510030F572 /* TimeConversionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeConversionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A3A3A682C4B11510030F572 /* TimeConversionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConversionUITests.swift; sourceTree = "<group>"; };
 		7A3A3A6A2C4B11510030F572 /* TimeConversionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConversionUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7A3A3A792C4B11EC0030F572 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+		7A3A3A7B2C4B12110030F572 /* ConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 		7A3A3A4B2C4B11500030F572 /* TimeConversion */ = {
 			isa = PBXGroup;
 			children = (
+				7A3A3A772C4B11BD0030F572 /* Converter */,
 				7A3A3A4C2C4B11500030F572 /* TimeConversionApp.swift */,
 				7A3A3A4E2C4B11500030F572 /* ContentView.swift */,
 				7A3A3A502C4B11510030F572 /* Assets.xcassets */,
@@ -115,6 +120,7 @@
 		7A3A3A5D2C4B11510030F572 /* TimeConversionTests */ = {
 			isa = PBXGroup;
 			children = (
+				7A3A3A782C4B11C50030F572 /* Converter */,
 				7A3A3A5E2C4B11510030F572 /* TimeConversionTests.swift */,
 			);
 			path = TimeConversionTests;
@@ -127,6 +133,22 @@
 				7A3A3A6A2C4B11510030F572 /* TimeConversionUITestsLaunchTests.swift */,
 			);
 			path = TimeConversionUITests;
+			sourceTree = "<group>";
+		};
+		7A3A3A772C4B11BD0030F572 /* Converter */ = {
+			isa = PBXGroup;
+			children = (
+				7A3A3A792C4B11EC0030F572 /* Converter.swift */,
+			);
+			path = Converter;
+			sourceTree = "<group>";
+		};
+		7A3A3A782C4B11C50030F572 /* Converter */ = {
+			isa = PBXGroup;
+			children = (
+				7A3A3A7B2C4B12110030F572 /* ConverterTests.swift */,
+			);
+			path = Converter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A3A3A4F2C4B11500030F572 /* ContentView.swift in Sources */,
+				7A3A3A7A2C4B11EC0030F572 /* Converter.swift in Sources */,
 				7A3A3A4D2C4B11500030F572 /* TimeConversionApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A3A3A7C2C4B12110030F572 /* ConverterTests.swift in Sources */,
 				7A3A3A5F2C4B11510030F572 /* TimeConversionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
