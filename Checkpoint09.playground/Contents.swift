@@ -1,14 +1,16 @@
-import UIKit
+struct User {
+    static var totalOfUsers = 0
 
-func getRandomValueOf(numbers: [Int]?) -> Int {
-    numbers?.randomElement() ?? Int.random(in: 1...100)
+    var firstName: String
+
+    init(firstName: String) {
+        self.firstName = firstName
+        User.totalOfUsers += 1
+    }
 }
 
-let randomValue1 = getRandomValueOf(numbers: [1, 2, 3, 4, 5])
-print(randomValue1)
-
-let randomValue2 = getRandomValueOf(numbers: nil)
-print(randomValue2)
-
-let randomValue3 = getRandomValueOf(numbers: [])
-print(randomValue3)
+print(User.totalOfUsers) // Output: 0
+var user1 = User(firstName: "Laura")
+print(User.totalOfUsers) // Output: 1
+var user2 = User(firstName: "Samantha")
+print(User.totalOfUsers) // Output: 2
