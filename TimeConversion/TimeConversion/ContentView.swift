@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var unitFrom = Unit.seconds
     @State private var unitTo = Unit.minutes
-    @State private var value: Int?
+    @State private var value = 0
 
     private var numberFormatter: NumberFormatter {
         let formatter = NumberFormatter()
@@ -44,6 +44,16 @@ struct ContentView: View {
                         TextField("Type the value", value: $value, formatter: numberFormatter)
                             .multilineTextAlignment(.trailing)
                             .keyboardType(.numberPad)
+                    }
+                }
+
+                Section {
+                    HStack {
+                        Text("Result")
+
+                        Spacer()
+
+                        Text("\(Converter.convert(value: value, from: unitFrom, to: unitTo))")
                     }
                 }
             }
