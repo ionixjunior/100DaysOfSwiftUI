@@ -128,4 +128,14 @@ final class ConverterTests: XCTestCase {
 
         XCTAssertEqual(24, result)
     }
+
+    func testConvertTheSameUnit() {
+        let value = 1
+        let from = Unit.days
+        let to = Unit.days
+
+        let result = Converter.convert(value: value, from: from, to: to)
+
+        XCTAssertEqual(value, result)
+    }
 }

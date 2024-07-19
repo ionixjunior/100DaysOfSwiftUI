@@ -11,6 +11,10 @@ class Converter {
     private init() {}
 
     static func convert(value: Int, from: Unit, to: Unit) -> Int {
+        if from == to {
+            return value
+        }
+
         if (from == .seconds || from == .minutes) && (to == .seconds || to == .minutes) {
             return convertBetweenSecondsAndMinutes(value: value, from: from, to: to)
         }
