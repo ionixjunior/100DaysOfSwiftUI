@@ -46,53 +46,5 @@ class Converter {
             return nil
         }
     }
-
-    private static func convertBetweenSecondsAndMinutes(value: Double, from: Unit, to: Unit) -> Double {
-        if from == .seconds {
-            return value / 60
-        }
-
-        return value * 60
-    }
-
-    private static func convertBetweenSecondsAndHours(value: Double, from: Unit, to: Unit) -> Double {
-        if from == .seconds {
-            return value / 60 / 60
-        }
-
-        return value * 60 * 60
-    }
-
-    private static func convertBetweenSecondsAndDays(value: Double, from: Unit, to: Unit) -> Double {
-        if from == .seconds {
-            return value / 60 / 60 / 24
-        }
-
-        return value * 60 * 60 * 24
-    }
-
-    private static func convertBetweenMinutesAndHours(value: Double, from: Unit, to: Unit) -> Double {
-        if from == .minutes {
-            return value / 60
-        }
-
-        return value * 60
-    }
-
-    private static func convertBetweenMinutesAndDays(value: Double, from: Unit, to: Unit) -> Double {
-        if from == .minutes {
-            return value / 60 / 24
-        }
-
-        return value * 60 * 24
-    }
-
-    private static func convertBetweenHoursAndDays(value: Double, from: Unit, to: Unit) -> Double {
-        if from == .hours {
-            return value / 24
-        }
-
-        return value * 24
-    }
 }
 
