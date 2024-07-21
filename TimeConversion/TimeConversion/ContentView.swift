@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var unitFrom = Unit.seconds
     @State private var unitTo = Unit.minutes
-    @State private var value = 0
+    @State private var value = 0.0
 
     private var numberFormatter: NumberFormatter {
         let formatter = NumberFormatter()
