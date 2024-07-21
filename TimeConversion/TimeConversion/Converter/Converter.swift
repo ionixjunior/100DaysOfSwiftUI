@@ -15,31 +15,36 @@ class Converter {
             return value
         }
 
-        if (from == .seconds || from == .minutes) && (to == .seconds || to == .minutes) {
-            return convertBetweenSecondsAndMinutes(value: value, from: from, to: to)
+        var valueToConvert = value
+        var fromUnitToConvert = from
+        var toUnitToConvert = to
+
+        if from == .days {
+            valueToConvert *= 24
+            fromUnitToConvert = .hours
+        } else if to == .days {
+            valueToConvert /= 24
+            toUnitToConvert = .hours
         }
 
-        if (from == .seconds || from == .hours) && (to == .seconds || to == .hours) {
-            return convertBetweenSecondsAndHours(value: value, from: from, to: to)
-        }
+        guard let fromUnitDuration = convertToUnitDuration(fromUnitToConvert) else { return 0.0 }
+        guard let toUnitDuration = convertToUnitDuration(toUnitToConvert) else { return 0.0 }
 
-        if (from == .seconds || from == .days) && (to == .seconds || to == .days) {
-            return convertBetweenSecondsAndDays(value: value, from: from, to: to)
-        }
+        let measurement = Measurement(value: valueToConvert, unit: fromUnitDuration)
+        return measurement.converted(to: toUnitDuration).value
+    }
 
-        if (from == .minutes || from == .hours) && (to == .minutes || to == .hours) {
-            return convertBetweenMinutesAndHours(value: value, from: from, to: to)
+    private static func convertToUnitDuration(_ unit: Unit) -> UnitDuration? {
+        switch unit {
+        case .seconds:
+            return .seconds
+        case .minutes:
+            return .minutes
+        case .hours:
+            return .hours
+        default:
+            return nil
         }
-
-        if (from == .minutes || from == .days) && (to == .minutes || to == .days) {
-            return convertBetweenMinutesAndDays(value: value, from: from, to: to)
-        }
-
-        if (from == .hours || from == .days) && (to == .hours || to == .days) {
-            return convertBetweenHoursAndDays(value: value, from: from, to: to)
-        }
-
-        return 0
     }
 
     private static func convertBetweenSecondsAndMinutes(value: Double, from: Unit, to: Unit) -> Double {
