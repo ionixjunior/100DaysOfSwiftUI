@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var correctAnswer = Int.random(in: 0...2)
     @State var showAnswerAlert = false
     @State var alertTitle = ""
+    @State var score = 0
 
     var body: some View {
         ZStack {
@@ -30,6 +31,8 @@ struct ContentView: View {
                         }
                     }
                 }
+
+                scoreView
             }
         }
         .ignoresSafeArea()
@@ -37,14 +40,22 @@ struct ContentView: View {
             Button("Next") {
                 showNextQuestion()
             }
+        }, message: {
+            scoreView
         })
+    }
+
+    var scoreView: some View {
+        Text("Your score is \(score)")
     }
 
     private func showAnswer(_ selectedFlag: Int) {
         if correctAnswer == selectedFlag {
             alertTitle = "Correct answer"
+            score += 1
         } else {
             alertTitle = "Wrong answer"
+            score -= 1
         }
 
         showAnswerAlert = true
