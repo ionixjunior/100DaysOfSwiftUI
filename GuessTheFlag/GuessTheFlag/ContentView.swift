@@ -15,6 +15,10 @@ struct ContentView: View {
     @State var alertMessage = ""
     @State var score = 0
 
+    let maxNumberQuestions = 8
+    @State var currentQuestion = 1
+    @State var showFinishGameAlert = false
+
     var body: some View {
         ZStack {
             LinearGradient(colors: [.red, .blue], startPoint: .bottomLeading, endPoint: .topTrailing)
@@ -44,6 +48,15 @@ struct ContentView: View {
         }, message: {
             Text(alertMessage)
         })
+        .alert(alertTitle, isPresented: $showFinishGameAlert, actions: {
+            Button("Restart") {
+                restartGame()
+            }
+        }, message: {
+            Text(alertMessage)
+            +
+            Text(" The game was finished.")
+        })
     }
 
     private func showAnswer(_ selectedFlag: Int) {
@@ -57,10 +70,22 @@ struct ContentView: View {
             alertMessage = "That's the flag of \(flags[selectedFlag]).\nYour score is \(score)."
         }
 
-        showAnswerAlert = true
+        if currentQuestion >= maxNumberQuestions {
+            showFinishGameAlert = true
+        } else {
+            showAnswerAlert = true
+        }
     }
 
     private func showNextQuestion() {
+        currentQuestion += 1
+        flags.shuffle()
+        correctAnswer = Int.random(in: 0...2)
+    }
+
+    private func restartGame() {
+        currentQuestion = 1
+        score = 0
         flags.shuffle()
         correctAnswer = Int.random(in: 0...2)
     }
