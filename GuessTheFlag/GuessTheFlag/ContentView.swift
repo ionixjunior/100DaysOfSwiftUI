@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var correctAnswer = Int.random(in: 0...2)
     @State var showAnswerAlert = false
     @State var alertTitle = ""
+    @State var alertMessage = ""
     @State var score = 0
 
     var body: some View {
@@ -32,7 +33,7 @@ struct ContentView: View {
                     }
                 }
 
-                scoreView
+                Text("Your score is \(score)")
             }
         }
         .ignoresSafeArea()
@@ -41,21 +42,19 @@ struct ContentView: View {
                 showNextQuestion()
             }
         }, message: {
-            scoreView
+            Text(alertMessage)
         })
-    }
-
-    var scoreView: some View {
-        Text("Your score is \(score)")
     }
 
     private func showAnswer(_ selectedFlag: Int) {
         if correctAnswer == selectedFlag {
-            alertTitle = "Correct answer"
             score += 1
+            alertTitle = "Correct answer"
+            alertMessage = "Your score is \(score)."
         } else {
-            alertTitle = "Wrong answer"
             score -= 1
+            alertTitle = "Wrong answer"
+            alertMessage = "That's the flag of \(flags[selectedFlag]).\nYour score is \(score)."
         }
 
         showAnswerAlert = true
