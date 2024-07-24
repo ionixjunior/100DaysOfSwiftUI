@@ -25,11 +25,9 @@ struct ContentView: View {
 
             VStack {
                 Text("Select the flag of")
-                    .font(.largeTitle)
-                    .foregroundStyle(.yellow)
+                    .titleStyle()
                 Text(flags[correctAnswer])
-                    .font(.largeTitle)
-                    .foregroundStyle(.yellow)
+                    .titleStyle()
 
                 VStack(spacing: 20) {
                     ForEach(0..<3) { flag in
