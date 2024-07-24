@@ -13,6 +13,7 @@
 		7A54A6682C4C1398006AEB0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A54A6672C4C1398006AEB0F /* Preview Assets.xcassets */; };
 		7AD7F5842C51C8AE00F1B14A /* FlagImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7F5832C51C8AE00F1B14A /* FlagImage.swift */; };
 		7AD7F5872C51CA4100F1B14A /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7F5862C51CA4100F1B14A /* Title.swift */; };
+		7AD7F58A2C51CA9200F1B14A /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7F5892C51CA9200F1B14A /* ViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7A54A6672C4C1398006AEB0F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7AD7F5832C51C8AE00F1B14A /* FlagImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagImage.swift; sourceTree = "<group>"; };
 		7AD7F5862C51CA4100F1B14A /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
+		7AD7F5892C51CA9200F1B14A /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		7A54A65E2C4C1398006AEB0F /* GuessTheFlag */ = {
 			isa = PBXGroup;
 			children = (
+				7AD7F5882C51CA8300F1B14A /* Extensions */,
 				7AD7F5852C51CA2800F1B14A /* ViewModifiers */,
 				7A54A65F2C4C1398006AEB0F /* GuessTheFlagApp.swift */,
 				7A54A6612C4C1398006AEB0F /* ContentView.swift */,
@@ -81,6 +84,14 @@
 				7AD7F5862C51CA4100F1B14A /* Title.swift */,
 			);
 			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		7AD7F5882C51CA8300F1B14A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7AD7F5892C51CA9200F1B14A /* ViewExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +168,7 @@
 				7A54A6622C4C1398006AEB0F /* ContentView.swift in Sources */,
 				7AD7F5842C51C8AE00F1B14A /* FlagImage.swift in Sources */,
 				7A54A6602C4C1398006AEB0F /* GuessTheFlagApp.swift in Sources */,
+				7AD7F58A2C51CA9200F1B14A /* ViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
