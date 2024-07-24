@@ -32,8 +32,7 @@ struct ContentView: View {
                         Button {
                             showAnswer(flag)
                         } label: {
-                            Image(flags[flag])
-                                .clipShape(Capsule())
+                            FlagImage(flag: flags[flag])
                         }
                     }
                 }
