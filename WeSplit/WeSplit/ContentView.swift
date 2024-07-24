@@ -58,6 +58,7 @@ struct ContentView: View {
                         Text("Amount + tip")
                         Spacer()
                         Text(grantTotal, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                            .foregroundStyle(tipPercentage == 0 ? .red : .black)
                     }
                 }
             }
