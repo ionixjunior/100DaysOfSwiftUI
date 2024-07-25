@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var appCurrentChoice: String?
-    @State private var shouldWin: Bool?
+    @State private var appCurrentChoice: String? = "rock"
+    @State private var shouldWin: Bool? = true
     @State private var score = 0
 
     let moves = ["rock", "paper", "scissors"]
@@ -27,16 +27,16 @@ struct ContentView: View {
                 Text("You should \(shouldWin ?? false ? "win" : "loose")")
 
                 HStack {
-                    Button("🪨") {
-
+                    GameButton(text: "🪨") {
+                        print("tapped on rock")
                     }
 
-                    Button("📄") {
-
+                    GameButton(text: "📄") {
+                        print("tapped on paper")
                     }
 
-                    Button("✂️") {
-
+                    GameButton(text: "✂️") {
+                        print("tapped on scissors")
                     }
                 }
             }
