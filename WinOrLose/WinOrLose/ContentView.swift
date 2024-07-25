@@ -22,6 +22,11 @@ struct ContentView: View {
         }
         .padding()
     }
+
+    private func makeAppCurrentChoice() -> String {
+        let random = Int.random(in: 0..<moves.count)
+        return moves[random]
+    }
 }
 
 #Preview {
