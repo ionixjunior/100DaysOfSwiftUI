@@ -14,13 +14,12 @@ struct ContentView: View {
     let moves = ["rock", "paper", "scissors"]
 
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        if (appCurrentChoice == nil && shouldWin == nil) {
+            Button("Start game") {
+                appCurrentChoice = makeAppCurrentChoice()
+                shouldWin = makeShouldWin()
+            }
         }
-        .padding()
     }
 
     private func makeAppCurrentChoice() -> String {
