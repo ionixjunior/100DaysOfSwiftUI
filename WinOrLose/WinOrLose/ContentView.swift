@@ -19,6 +19,8 @@ struct ContentView: View {
                 appCurrentChoice = makeAppCurrentChoice()
                 shouldWin = makeShouldWin()
             }
+        } else {
+            
         }
     }
 
