@@ -23,6 +23,7 @@ struct ContentView: View {
         } else {
             VStack {
                 Text("Your score is \(score)")
+                Text("The app's move is \(appCurrentChoice ?? "not selected")")
             }
         }
     }
