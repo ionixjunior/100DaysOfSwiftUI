@@ -24,6 +24,7 @@ struct ContentView: View {
             VStack {
                 Text("Your score is \(score)")
                 Text("The app's move is \(appCurrentChoice ?? "not selected")")
+                Text("You should \(shouldWin ?? false ? "win" : "loose")")
             }
         }
     }
