@@ -27,6 +27,10 @@ struct ContentView: View {
         let random = Int.random(in: 0..<moves.count)
         return moves[random]
     }
+
+    private func makeShouldWin() -> Bool {
+        return Bool.random()
+    }
 }
 
 #Preview {
