@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var appCurrentChoice: String?
+    @State private var shouldWin: Bool?
 
     let moves = ["rock", "paper", "scissors"]
 
