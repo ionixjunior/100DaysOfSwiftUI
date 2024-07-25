@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var appCurrentChoice: String?
     @State private var shouldWin: Bool?
+    @State private var score = 0
 
     let moves = ["rock", "paper", "scissors"]
 
@@ -20,7 +21,9 @@ struct ContentView: View {
                 shouldWin = makeShouldWin()
             }
         } else {
-            
+            VStack {
+                Text("Your score is \(score)")
+            }
         }
     }
 
