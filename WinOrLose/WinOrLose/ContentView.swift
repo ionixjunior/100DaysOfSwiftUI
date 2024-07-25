@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var appCurrentChoice: String?
+
     let moves = ["rock", "paper", "scissors"]
 
     var body: some View {
