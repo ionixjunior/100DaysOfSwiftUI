@@ -55,6 +55,21 @@ struct ContentView: View {
     private func makeShouldWin() -> Bool {
         return Bool.random()
     }
+
+    private func makeUser(choice userChoice: Object) {
+        guard let shouldWin = shouldWin else { return }
+
+        if (appCurrentChoice == .rock && userChoice == .paper && shouldWin)
+            || (appCurrentChoice == .rock && userChoice == .scissors && !shouldWin)
+            || (appCurrentChoice == .paper && userChoice == .scissors && shouldWin)
+            || (appCurrentChoice == .paper && userChoice == .rock && !shouldWin)
+            || (appCurrentChoice == .scissors && userChoice == .rock && shouldWin)
+            || (appCurrentChoice == .scissors && userChoice == .paper && !shouldWin) {
+            score += 1
+        } else {
+            score -= 1
+        }
+    }
 }
 
 #Preview {
