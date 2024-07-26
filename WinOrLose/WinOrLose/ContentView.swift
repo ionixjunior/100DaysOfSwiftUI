@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+enum Object {
+    case rock, paper, scissors
+}
+
 struct ContentView: View {
     @State private var appCurrentChoice: String? = "rock"
     @State private var shouldWin: Bool? = true
