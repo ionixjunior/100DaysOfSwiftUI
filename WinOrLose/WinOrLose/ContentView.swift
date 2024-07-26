@@ -15,8 +15,14 @@ struct ContentView: View {
     @State private var appCurrentChoice: Object? = Object.rock
     @State private var shouldWin: Bool? = true
     @State private var score = 0
+    @State private var isPresentAnswer = false
+    @State private var answerMessage = ""
+    @State private var remainingRounds = 10
 
     let moves: [Object] = [.rock, .paper, .scissors]
+    let maxRounds = 10
+
+
 
     var body: some View {
         if (appCurrentChoice == nil && shouldWin == nil) {
@@ -43,6 +49,33 @@ struct ContentView: View {
                         makeUser(choice: .scissors)
                     }
                 }
+                .alert("Your answer", isPresented: $isPresentAnswer) {
+                    if (remainingRounds == 1) {
+                        Button("Restart") {
+                            appCurrentChoice = makeAppCurrentChoice()
+                            shouldWin = makeShouldWin()
+                            remainingRounds = 10
+                            score = 0
+                        }
+                    } else {
+                        Button("Next") {
+                            appCurrentChoice = makeAppCurrentChoice()
+                            shouldWin = makeShouldWin()
+                            remainingRounds -= 1
+                        }
+                    }
+                } message: {
+                    if (remainingRounds == 1) {
+                        Text(answerMessage)
+                        +
+                        Text("\nThe game is over.")
+                        +
+                        Text("\nYour score is \(score).")
+                    } else {
+                        Text(answerMessage)
+                    }
+                }
+
             }
         }
     }
@@ -66,12 +99,13 @@ struct ContentView: View {
             || (appCurrentChoice == .scissors && userChoice == .rock && shouldWin)
             || (appCurrentChoice == .scissors && userChoice == .paper && !shouldWin) {
             score += 1
+            answerMessage = "Your answer is correct!"
         } else {
             score -= 1
+            answerMessage = "Your answer is wrong!"
         }
 
-        appCurrentChoice = makeAppCurrentChoice()
-        self.shouldWin = makeShouldWin()
+        isPresentAnswer = true
     }
 }
 
