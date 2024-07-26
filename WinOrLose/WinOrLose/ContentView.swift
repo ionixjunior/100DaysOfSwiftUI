@@ -69,6 +69,9 @@ struct ContentView: View {
         } else {
             score -= 1
         }
+
+        appCurrentChoice = makeAppCurrentChoice()
+        self.shouldWin = makeShouldWin()
     }
 }
 
