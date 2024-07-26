@@ -32,15 +32,15 @@ struct ContentView: View {
 
                 HStack {
                     GameButton(text: "🪨") {
-                        print("tapped on rock")
+                        makeUser(choice: .rock)
                     }
 
                     GameButton(text: "📄") {
-                        print("tapped on paper")
+                        makeUser(choice: .paper)
                     }
 
                     GameButton(text: "✂️") {
-                        print("tapped on scissors")
+                        makeUser(choice: .scissors)
                     }
                 }
             }
