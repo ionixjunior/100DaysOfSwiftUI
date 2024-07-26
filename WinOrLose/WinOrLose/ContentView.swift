@@ -12,11 +12,11 @@ enum Object {
 }
 
 struct ContentView: View {
-    @State private var appCurrentChoice: String? = "rock"
+    @State private var appCurrentChoice: Object? = Object.rock
     @State private var shouldWin: Bool? = true
     @State private var score = 0
 
-    let moves = ["rock", "paper", "scissors"]
+    let moves: [Object] = [.rock, .paper, .scissors]
 
     var body: some View {
         if (appCurrentChoice == nil && shouldWin == nil) {
@@ -27,7 +27,7 @@ struct ContentView: View {
         } else {
             VStack {
                 Text("Your score is \(score)")
-                Text("The app's move is \(appCurrentChoice ?? "not selected")")
+                Text("The app's move is \(appCurrentChoice ?? .rock)")
                 Text("You should \(shouldWin ?? false ? "win" : "loose")")
 
                 HStack {
@@ -47,7 +47,7 @@ struct ContentView: View {
         }
     }
 
-    private func makeAppCurrentChoice() -> String {
+    private func makeAppCurrentChoice() -> Object {
         let random = Int.random(in: 0..<moves.count)
         return moves[random]
     }
