@@ -14,7 +14,7 @@ struct ContentView: View {
     @State private var coffeeAmount = 1
     @State private var alertTitle = ""
     @State private var alertMessage = ""
-    @State private var showingAlert = false
+
 
     private static var defaultWakeTime: Date {
         var components = DateComponents()
@@ -27,26 +27,46 @@ struct ContentView: View {
         NavigationStack {
             Form {
                 Section("When do you want to wake up?") {
-                    DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
+                    DatePicker("Please enter a time", selection: Binding(get: {
+                        self.wakeUp
+                    }, set: { newValue in
+                        self.wakeUp = newValue
+                        self.calculateBedtime()
+                    }), displayedComponents: .hourAndMinute)
                 }
 
                 Section("Desired amount of sleep") {
-                    Stepper("\(sleepAmount.formatted()) hours", value: $sleepAmount, in: 4...12, step: 0.25)
+                    Stepper("\(sleepAmount.formatted()) hours", value: Binding(get: {
+                        self.sleepAmount
+                    }, set: { newValue in
+                        self.sleepAmount = newValue
+                        self.calculateBedtime()
+                    }), in: 4...12, step: 0.25)
                 }
 
                 Section("Daily coffee intake") {
-                    Stepper("^[\(coffeeAmount) cup](inflect: true)", value: $coffeeAmount, in: 1...20)
+//                    Stepper("^[\(coffeeAmount) cup](inflect: true)", value: $coffeeAmount, in: 1...20)
+
+                    Picker("Total of cups", selection: Binding(get: {
+                        self.coffeeAmount
+                    }, set: { newValue in
+                        self.coffeeAmount = newValue
+                        self.calculateBedtime()
+                    })) {
+                        ForEach(1...20, id: \.self) { cups in
+                            Text("\(cups)")
+                        }
+                    }
+                }
+
+                if !alertTitle.isEmpty {
+                    Text("\(alertTitle)\n\(alertMessage)")
+                        .multilineTextAlignment(.center)
+                        .font(.largeTitle)
+                        .frame(maxWidth: .infinity)
                 }
             }
             .navigationTitle("BetterRest")
-            .toolbar {
-                Button("Calculate", action: calculateBedtime)
-            }
-            .alert(alertTitle, isPresented: $showingAlert) {
-                Button("Ok") { }
-            } message: {
-                Text(alertMessage)
-            }
         }
     }
 
@@ -68,8 +88,6 @@ struct ContentView: View {
             alertTitle = "Error"
             alertMessage = "Sorry, there was a problem calculating your bedtime."
         }
-
-        showingAlert = true
     }
 }
 
