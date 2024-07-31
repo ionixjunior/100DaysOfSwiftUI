@@ -33,6 +33,7 @@ struct SharedContentView: View {
                         self.wakeUp = newValue
                         self.calculateBedtime()
                     }), displayedComponents: .hourAndMinute)
+                    .pickerStyle(platformSpecificPickerStyle())
                 }
 
                 Section("Desired amount of sleep") {
@@ -57,6 +58,7 @@ struct SharedContentView: View {
                             Text("\(cups)")
                         }
                     }
+                    .pickerStyle(platformSpecificPickerStyle())
                 }
 
                 if !alertTitle.isEmpty {
@@ -88,6 +90,14 @@ struct SharedContentView: View {
             alertTitle = "Error"
             alertMessage = "Sorry, there was a problem calculating your bedtime."
         }
+    }
+
+    private func platformSpecificPickerStyle() -> some PickerStyle {
+        #if os(watchOS)
+        return WheelPickerStyle()
+        #else
+        return DefaultPickerStyle()
+        #endif
     }
 }
 
